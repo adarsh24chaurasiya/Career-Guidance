@@ -119,7 +119,7 @@ x.font="400 18px 'DM Sans',sans-serif";x.fillText("A record of participation and
 }
 
 const V={
-home:()=>`<section class="hero"><p class="tag">Final year project, KIT Kanpur</p><h1>Know what to do after your exams</h1><p>Tell us about yourself, take a short assessment, get your best-fit pathways, complete a step-by-step roadmap and earn your own certificate.</p><button class="btn" onclick="go('${S.profile?"test":"profile"}')">${S.profile?"Continue your journey":"Start now"}</button></section>
+home:()=>`<section class="hero"><h1>Know what to do after your exams</h1><p>Tell us about yourself, take a short assessment, get your best-fit pathways, complete a step-by-step roadmap and earn your own certificate.</p><button class="btn" onclick="go('${S.profile?"test":"profile"}')">${S.profile?"Continue your journey":"Start now"}</button></section>
 <section class="grid3">${Object.entries(D).map(([k,v])=>`<button class="card stage" onclick="stage('${k}')"><h3>${v.l}</h3><p>${v.t}</p><span>Start here</span></button>`).join("")}</section>
 <section class="card"><h3>Verify a certificate</h3><div class="row"><input id="vid" placeholder="CG-2026-XXXXXXXX"><button class="btn ghost" onclick="verify()">Verify</button></div><p id="vres" class="muted"></p></section>`,
 profile:()=>{
