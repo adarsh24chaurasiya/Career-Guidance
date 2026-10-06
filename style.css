@@ -1,5 +1,6 @@
 :root{--bg:#14102b;--card:#211a45;--line:#3a2f6b;--tx:#f3f0ff;--mu:#a9a1d4;--gold:#ffc247;--aqua:#4de3cf;--rose:#ff6f91}
-*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
 body{font-family:"DM Sans",sans-serif;color:var(--tx);background:radial-gradient(circle at 12% 8%,#3b1f6e 0,transparent 38%),radial-gradient(circle at 90% 30%,#0f4a5a 0,transparent 35%),var(--bg);min-height:100vh;line-height:1.6}
 h1,h2,h3,h4,.logo{font-family:"Bricolage Grotesque",sans-serif}
 header{display:flex;align-items:center;gap:20px;padding:16px 5vw;border-bottom:1px solid var(--line);position:sticky;top:0;background:#14102bee;backdrop-filter:blur(8px);z-index:5;flex-wrap:wrap}
@@ -13,7 +14,7 @@ nav .d{color:var(--aqua);border-color:var(--aqua)}
 nav .a{background:var(--gold);color:#14102b;border-color:var(--gold);font-weight:700}
 .reset{background:none;border:1px solid var(--line);color:var(--mu);padding:6px 14px;border-radius:99px;cursor:pointer}
 .reset:hover{color:var(--rose);border-color:var(--rose)}
-main{max-width:1000px;margin:0 auto;padding:40px 5vw 80px}
+main{max-width:1000px;margin:0 auto;padding:40px 5vw 80px;overflow-wrap:anywhere}
 .hero{padding:60px 0 40px}
 .hero h1{font-size:clamp(2.4rem,7vw,4.6rem);line-height:1.05;font-weight:800;max-width:14ch;margin:14px 0 20px}
 .hero .tag{color:var(--aqua);font-weight:700}
@@ -78,3 +79,28 @@ details .steps{margin-top:10px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 4px}
 .chips span{padding:4px 12px;border:1px solid var(--line);border-radius:99px;font-size:.85rem;color:var(--mu)}
 .grp{margin-top:28px;color:var(--gold);font-size:1.2rem}
+@media(max-width:700px){
+header{padding:10px max(4vw,env(safe-area-inset-left));gap:8px 10px}
+.logo{font-size:1.2rem}
+.reset{margin-left:auto;padding:5px 12px;font-size:.85rem}
+nav{order:3;flex:0 0 100%;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav button{flex:0 0 auto;white-space:nowrap;padding:7px 14px}
+main{padding:22px 4vw 60px}
+.hero{padding:28px 0 18px}
+.hero p{font-size:1rem}
+.btn,button.btn{width:100%;padding:14px}
+.card,.panel,.task{padding:18px;border-radius:16px}
+.panel h2{font-size:1.5rem}
+.form{grid-template-columns:1fr;gap:14px}
+.scale{justify-content:space-between;gap:6px}
+.scale button{flex:1;max-width:58px;width:auto;height:48px;border-radius:14px}
+.res{grid-template-columns:1fr;gap:12px}
+.ring{width:72px;height:72px;font-size:1.2rem}
+.ring span{width:56px;height:56px}
+.row{flex-direction:column}
+.opts label{padding:12px}
+canvas{border-radius:8px;margin:12px 0}
+.grp{font-size:1.1rem}
+}
+@media(max-width:380px){.hero h1{font-size:2rem}.logo{font-size:1.05rem}.scale button{height:44px}}

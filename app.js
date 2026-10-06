@@ -138,6 +138,7 @@ if(view!="home")view=fix(VW.indexOf(view));
 const i=IDX[view];
 $("#steps").innerHTML=STEPS.map((s,k)=>`<button class="${k<i?"d":k==i?"a":NEED()[VW[k]]?"":"l"}" onclick="nav(${k})">${s}</button>`).join("");
 $("#app").innerHTML=(note?`<p class="note">${note}</p>`:"")+V[view]();note="";
+const on=$("#steps .a");if(on&&on.scrollIntoView)on.scrollIntoView({inline:"center",block:"nearest"});
 if(view=="cert")paint()
 }
 draw();
