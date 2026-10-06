@@ -8,6 +8,7 @@ const NEED=()=>({profile:1,test:S.profile,results:S.ans&&S.ans.filter(Boolean).l
 let note="";
 function fix(k){const n=NEED(),j=VW.findIndex(v=>!n[v]);if(j<0||k<j)return VW[k];note=`Complete "${STEPS[j-1]}" first to open ${STEPS[k]}.`;return VW[j-1]}
 function nav(k){go(fix(k))}
+function menu(o){document.body.classList.toggle("open",o)}
 function stage(k){S.stSel=k;S.skSel=null;delete S.draft;go("profile")}
 const GOV=["gov","gvt","civ","ssc","def"];
 let view=S.view||"home";
@@ -136,9 +137,13 @@ cert:()=>`<section class="panel"><h2>Congratulations, ${S.cert.nm}</h2><p class=
 function draw(){
 if(view!="home")view=fix(VW.indexOf(view));
 const i=IDX[view];
-$("#steps").innerHTML=STEPS.map((s,k)=>`<button class="${k<i?"d":k==i?"a":NEED()[VW[k]]?"":"l"}" onclick="nav(${k})">${s}</button>`).join("");
+const items=STEPS.map((s,k)=>`<button class="${k<i?"d":k==i?"a":NEED()[VW[k]]?"":"l"}" onclick="nav(${k})">${s}</button>`).join("");
+$("#steps").innerHTML=items;
+$("#drawer").innerHTML=`<button class="x" aria-label="Close menu" onclick="menu(0)">&#10005;</button><button class="${view=="home"?"a":""}" onclick="go('home')">Home</button>`+items;
 $("#app").innerHTML=(note?`<p class="note">${note}</p>`:"")+V[view]();note="";
-const on=$("#steps .a");if(on&&on.scrollIntoView)on.scrollIntoView({inline:"center",block:"nearest"});
+menu(0);
 if(view=="cert")paint()
 }
+addEventListener("scroll",()=>menu(0),{passive:true});
+addEventListener("keydown",e=>{if(e.key=="Escape")menu(0)});
 draw();

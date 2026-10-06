@@ -103,3 +103,16 @@ canvas{border-radius:8px;margin:12px 0}
 .grp{font-size:1.1rem}
 }
 @media(max-width:380px){.hero h1{font-size:2rem}.logo{font-size:1.05rem}.scale button{height:44px}}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:none;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px}
+.burger i{display:block;width:20px;height:2px;background:var(--tx);border-radius:2px}
+#shade{position:fixed;inset:0;background:#0009;opacity:0;pointer-events:none;transition:opacity .25s;z-index:15}
+#drawer{position:fixed;top:0;right:0;height:100%;width:min(82vw,300px);background:var(--card);border-left:1px solid var(--line);padding:80px 18px 24px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;transform:translateX(100%);transition:transform .25s;z-index:20}
+#drawer button{text-align:left;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:none;color:var(--mu);font:1rem "DM Sans",sans-serif;cursor:pointer}
+#drawer .d{color:var(--aqua);border-color:var(--aqua)}
+#drawer .a{background:var(--gold);color:#14102b;border-color:var(--gold);font-weight:700}
+#drawer .l{opacity:.5}
+body.open #shade{opacity:1;pointer-events:auto}
+body.open #drawer{transform:none}
+@media(max-width:900px){nav#steps{display:none}.burger{display:flex}.reset{margin-left:auto}}
+@media(min-width:901px){#drawer,#shade{display:none}}
+#drawer .x{position:absolute;top:16px;right:16px;width:44px;height:44px;padding:0;text-align:center;font-size:1.1rem;color:var(--tx)}
